@@ -19,6 +19,13 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    pageController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final onBoardingCubit =
         BlocProvider.of<OnboardingCubit>(context, listen: true);
@@ -121,7 +128,15 @@ class _OnBoardingState extends State<OnBoarding> {
                       style: ElevatedButton.styleFrom(
                           foregroundColor: AppColors.kWhiteColor,
                           backgroundColor: AppColors.kPrimaryBlue),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (onBoardingCubit.currentIndex ==
+                            onBoardingCubit.onboardingData.length - 1) {
+                        } else {
+                          pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeIn);
+                        }
+                      },
                       child: Text(
                         onBoardingCubit.currentIndex ==
                                 onBoardingCubit.onboardingData.length - 1
