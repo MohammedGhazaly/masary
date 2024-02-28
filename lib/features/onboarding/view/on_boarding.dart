@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:masary/core/utils/colors.dart';
+import 'package:masary/features/home_page/view/home_view.dart';
 import 'package:masary/features/onboarding/view_model/onboarding/onboarding_cubit.dart';
 
-class OnBoarding extends StatefulWidget {
-  const OnBoarding({super.key});
+class OnBoardingView extends StatefulWidget {
+  const OnBoardingView({super.key});
 
   @override
-  State<OnBoarding> createState() => _OnBoardingState();
+  State<OnBoardingView> createState() => _OnBoardingViewState();
 }
 
-class _OnBoardingState extends State<OnBoarding> {
+class _OnBoardingViewState extends State<OnBoardingView> {
   PageController pageController = PageController();
   @override
   void initState() {
@@ -131,6 +132,10 @@ class _OnBoardingState extends State<OnBoarding> {
                       onPressed: () {
                         if (onBoardingCubit.currentIndex ==
                             onBoardingCubit.onboardingData.length - 1) {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const HomeView();
+                          }));
                         } else {
                           pageController.nextPage(
                               duration: const Duration(milliseconds: 300),

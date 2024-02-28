@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:masary/core/utils/colors.dart';
 import 'package:masary/features/home_page/view/home_view.dart';
+import 'package:masary/features/onboarding/view/on_boarding.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -20,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(Duration(seconds: 3), () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) {
-        return HomeView();
+        return OnBoardingView();
       }));
     });
   }
