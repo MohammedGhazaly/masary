@@ -44,7 +44,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) {
+                          return const HomeView();
+                        }));
+                      },
                       child: Text(
                         "Skip",
                         style: TextStyle(
@@ -132,8 +137,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       onPressed: () {
                         if (onBoardingCubit.currentIndex ==
                             onBoardingCubit.onboardingData.length - 1) {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context) {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) {
                             return const HomeView();
                           }));
                         } else {

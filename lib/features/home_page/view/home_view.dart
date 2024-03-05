@@ -56,7 +56,37 @@ class HomeView extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: TransactionButtons(),
-            )
+            ),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 12,
+            )),
+            SliverToBoxAdapter(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Activity",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.kBlackColor,
+                    ),
+                  ),
+                  TextButton(onPressed: () {}, child: Text("See All"))
+                ],
+              ),
+            ),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 12,
+            )),
+            SliverList.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return Text("aaa");
+              },
+            ),
           ],
         ),
       ),
