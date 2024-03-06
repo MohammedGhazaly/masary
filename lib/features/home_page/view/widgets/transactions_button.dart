@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masary/core/utils/colors.dart';
+import 'package:masary/features/plus/view/plus_screen.dart';
 
 class TransactionButtons extends StatelessWidget {
   const TransactionButtons({
@@ -21,7 +22,12 @@ class TransactionButtons extends StatelessWidget {
                 foregroundColor: AppColors.kBlackColor,
                 backgroundColor: AppColors.kSeconderyGreen,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const PlusScreen();
+                }));
+              },
               icon: Icon(Icons.add),
               label: Text(
                 "Plus",

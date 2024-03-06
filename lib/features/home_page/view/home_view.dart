@@ -82,14 +82,37 @@ class HomeView extends StatelessWidget {
               height: 12,
             )),
             SliverList.builder(
-              itemCount: 10,
+              itemCount: 25,
               itemBuilder: (context, index) {
-                return Text("aaa");
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: ActivityItem(),
+                );
               },
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ActivityItem extends StatelessWidget {
+  const ActivityItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        CircleAvatar(
+          radius: 25,
+        ),
+        SizedBox(
+          width: 12,
+        ),
+        Expanded(child: Text("Wed, Nov 22, 2023")),
+        Text("+2000.0")
+      ],
     );
   }
 }
