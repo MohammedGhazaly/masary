@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masary/core/utils/colors.dart';
-import 'package:masary/features/plus/view/plus_screen.dart';
+import 'package:masary/features/home_page/data/models/finance_model.dart';
+import 'package:masary/features/plus_minus/view/plus_minus_screen.dart';
 
 class TransactionButtons extends StatelessWidget {
   const TransactionButtons({
@@ -25,7 +26,9 @@ class TransactionButtons extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return const PlusScreen();
+                  return const PlusMinusScreen(
+                    isPlus: true,
+                  );
                 }));
               },
               icon: Icon(Icons.add),
@@ -49,7 +52,13 @@ class TransactionButtons extends StatelessWidget {
                 foregroundColor: AppColors.kBlackColor,
                 backgroundColor: AppColors.kSeconderyRed,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return PlusMinusScreen(
+                    isPlus: false,
+                  );
+                }));
+              },
               icon: Icon(Icons.remove),
               label: Text(
                 "Minus",
