@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masary/core/utils/colors.dart';
+import 'package:masary/features/all_activity/view/all_activity_screen.dart';
 import 'package:masary/features/home_page/view/widgets/custom_balance_container.dart';
 import 'package:masary/features/home_page/view/widgets/transactions_button.dart';
 
@@ -73,7 +74,19 @@ class HomeView extends StatelessWidget {
                       color: AppColors.kBlackColor,
                     ),
                   ),
-                  TextButton(onPressed: () {}, child: Text("See All"))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return AllActivityScreen();
+                        }));
+                      },
+                      child: Text(
+                        "See All",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ))
                 ],
               ),
             ),
